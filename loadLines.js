@@ -6,9 +6,9 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 
-function doSearch(word,lang,resultBox) {
+function doSearch(word,lang,grade,resultBox) {
     if (data != null) {
-        actualSearch(word,lang,resultBox);
+        actualSearch(word,lang,grade,resultBox);
     }
     else {
         $.get("input.txt", function(_data) {
@@ -19,18 +19,18 @@ function doSearch(word,lang,resultBox) {
                 while (templines[0] == "") { templines.shift();}
                 data.push({meta: templines.shift(), lines: templines});
             }
-            actualSearch(word,lang,resultBox);
+            actualSearch(word,lang,grade,resultBox);
         });
     }
 }
 
-function actualSearch(word,lang,resultBox) {
+function actualSearch(word,lang,grade,resultBox) {
     $(resultTable).empty();
     var resultCount = 0;
     $.each(data, function(index,entry){
         for (var i = 0; i < entry.lines.length; ++i) {
             if (entry.lines[i].indexOf(word) > -1) {
-                if (getLang(entry.meta.split("-")[2]) == lang || lang == "") {
+                if ((getLang(entry.meta.split("-")[2]) == lang || lang == "") && entry.meta.split("-")[1].indexOf(grade) > -1) {
                     $(resultTable).append(generateLine(word,entry,i));
                     resultCount++;
                 }
