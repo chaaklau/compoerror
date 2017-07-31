@@ -13,6 +13,7 @@
             td {vertical-align: top;}
             tr:nth-child(even) {background-color: #FFFFEE;}
             .tags {font-size:small;color:gray;}
+            .tags2 {font-size:small; color: #FF8888;}
         </style>
         <!--Load Data-->
         <script src="loadLines.js"></script>
@@ -27,7 +28,7 @@
                 <div class='col-md-4'>關鍵詞&nbsp;<br><input type='text' id='word' class='form-control'></input></div>
                 <div class='col-md-2'>祖籍&nbsp;<br><select id='lang'><option value="" selected>無限制</option><option value="巴基斯坦">巴基斯坦</option><option value="印度">印度</option><option value="菲律賓">菲律賓</option><option value="尼泊爾">尼泊爾</option></select></div>
                 <div class='col-md-2'>年級&nbsp;<br><select id='grade'><option value="" selected>無限制</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div>
-                <div class='col-md-4'><input type='link' class='btn btn-primary' value='搜尋' onClick='if($("#word").val().length > 0) { doSearch($("#word").val(),$("#lang").val(),$("#grade").val(),"#resultBox")}'></div>
+                <div class='col-md-4'><input type='button' class='btn btn-primary' value='搜尋' onClick='if($("#word").val().length > 0) { doSearch($("#word").val(),$("#lang").val(),$("#grade").val(),"#resultBox")}'></input></div>
                 </p></form>
                 </div>
             </div>

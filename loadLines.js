@@ -49,6 +49,6 @@ function getLang(str) {
 function generateLine(word,entry,line) {
     return "<tr><td class='annotation'>"
         + entry.meta + "<br>第"  + (line+1) + "行" + "</td><td class='annotation'>" + getLang(entry.meta.split("-")[2]) 
-        + "</td><td>" + entry.lines[line].replaceAll(word,"<span style='color: blue'>"+word+"</span>").replaceAll("(","<span class='tags'>(").replaceAll(")",")</span>")
+        + "</td><td>" + entry.lines[line].replaceAll(word,"<span style='color: blue'>"+word+"</span>").replaceAll("(","<span class='tags'>(").replaceAll(")",")</span>").replaceAll("[","<span class='tags2'>[").replaceAll("]","]</span>")
         + "</td></tr>";
 }
